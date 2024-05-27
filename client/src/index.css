@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Sevillana&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 700;
+}
+body {
+  min-height: 100vh;
+}
+
+.app{
+  width: 80%;
+  margin: auto;
+}
