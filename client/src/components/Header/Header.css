@@ -1,9 +1,10 @@
 .header {
   height: 34vw;
   margin: 30px auto;
-  background: url("/header_img.png") no-repeat;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
+  border-radius: 10px;
 }
 
 .header-contents {
@@ -20,7 +21,7 @@
 
 .header-contents h2 {
   font-weight: 700;
-  color: antiquewhite;
+  color: white;
   font-size: max(4.5vw, 22px);
 }
 
@@ -45,4 +46,15 @@
   color: tomato;
   background-color: white;
   animation: fadeIn 1s;
+}
+
+
+.slider button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
 }
