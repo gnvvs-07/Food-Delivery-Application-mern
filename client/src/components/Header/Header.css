@@ -48,7 +48,6 @@
   animation: fadeIn 1s;
 }
 
-
 .slider button {
   padding: 10px 20px;
   margin: 0 5px;
@@ -57,4 +56,22 @@
   background: transparent;
   color: rgb(255, 255, 255);
   opacity: 0.6;
+}
+
+@media (max-width: 1050px) {
+  .header-contents {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-contents {
+    max-width: 65%;
+  }
+  .header-contents p {
+    display: none;
+  }
+  .header-contents button {
+    padding: 2vw, 4vw;
+  }
 }
