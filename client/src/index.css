@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 
 @keyframes fadeIn {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+  100% {
     opacity: 1;
   }
 }
@@ -28,11 +28,11 @@ body {
   margin: auto;
 }
 
-a{
+a {
   text-decoration: none;
   color: rgb(144, 119, 115);
 }
 
-Link{
+Link {
   color: rgb(144, 119, 115);
 }

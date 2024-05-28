@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { assets } from "../../assets/assets.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function Navbar() {
+export default function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("");
 
   return (
@@ -44,7 +44,13 @@ export default function Navbar() {
           <img src={assets.basket_icon} alt="" />
           <div className="dot"></div>
         </div>
-        <button>login</button>
+        <button
+          onClick={() => {
+            setShowLogin(true);
+          }}
+        >
+          login
+        </button>
       </div>
     </div>
   );
