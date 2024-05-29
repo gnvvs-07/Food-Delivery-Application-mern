@@ -40,4 +40,23 @@ const listFood = async (req, res) => {
   }
 };
 
-export { addFood, listFood };
+// remove food item
+
+const removeFood = async (req, res) => {
+  try {
+    const food = await foodModel.findById(req.body.id);
+    // delete the image from the upload folder
+    fs.unlinkSync(`uploads/${food.image}`, () => {});
+    // delete the food
+    await foodModel.findByIdAndDelete(req.body.id);
+    res.json({
+      success: true,
+      message: "food deleted successfully",
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: "cannot delete the food item" });
+  }
+};
+
+export { addFood, listFood, removeFood };
