@@ -1,24 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Add.css";
 import { assets } from "../../assets/assets";
 export default function Add() {
+  const [image, setImage] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    category: "Salad",
+  });
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({
+      ...data,
+      [name]: value,
+    }));
+  };
   return (
     <div className="add">
       <form className="flex-col">
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
-            <img src={assets.upload_area} alt="" />
+            <img
+              src={image ? URL.createObjectURL(image) : assets.upload_area}
+              alt=""
+            />
           </label>
-          <input type="file" name="image" id="image" hidden required />
+          <input
+            onChange={(e) => setImage(e.target.files[0])}
+            type="file"
+            name="image"
+            id="image"
+            hidden
+            required
+          />
         </div>
         <div className="add-product-name flex-col">
           <p>product name</p>
-          <input type="text" name="name" placeholder="Enter Food name" />
+          <input
+            onChange={onChangeHandler}
+            value={data.name}
+            type="text"
+            name="name"
+            placeholder="Enter Food name"
+          />
         </div>
         <div className="add-product-description flex-col">
           <p>Product description</p>
           <textarea
+            onChange={onChangeHandler}
+            value={data.description}
             name="description"
             id="description"
             rows={6}
@@ -29,7 +62,7 @@ export default function Add() {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product category</p>
-            <select name="category" id="category">
+            <select name="category" id="category" onChange={onChangeHandler}>
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
@@ -47,6 +80,8 @@ export default function Add() {
           <div className="add-price flex-col">
             <p>Product price</p>
             <input
+              onChange={onChangeHandler}
+              value={data.price}
               type="number"
               name="price"
               id="price"
