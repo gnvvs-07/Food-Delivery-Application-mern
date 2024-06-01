@@ -31,3 +31,8 @@ hr{
   flex-direction: column;
   gap: 15px;
 }
+
+.cursor{
+  cursor: pointer;
+  color: red;
+}
