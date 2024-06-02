@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./PlaceOrder.css";
 import { IoMdArrowDropright } from "react-icons/io";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 export default function PlaceOrder() {
   const { getTotalCartAmount, token, food_list, cartItems, url } =
     useContext(StoreContext);
@@ -54,6 +55,17 @@ export default function PlaceOrder() {
       alert("Error in placing order");
     }
   };
+  const navigate = useNavigate();
+  useEffect(
+    ()=>{
+      if(!token){
+        navigate("/cart");
+      }
+      else if(getTotalCartAmount()===0){
+        navigate("/cart");
+      }
+    },[token]
+  )
   return (
     <form action="" className="place-order" onSubmit={placeOrder}>
       <div className="place-order-left">
