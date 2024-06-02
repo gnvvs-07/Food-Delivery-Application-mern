@@ -14,24 +14,25 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  address:{
-    type:Object,
-    required:true
+  address: {
+    type: Object,
+    required: true,
   },
-  status:{
-    type:String,
-    default:"food processing"
+  status: {
+    type: String,
+    default: "food processing",
   },
-  date:{
-    type:Date,
-    default:Date.now().toLocaleString(),
+  date: {
+    type: Date,
+    default: Date.now(),
   },
-  payment:{
-    type:Boolean,
-    default:false
+  payment: {
+    type: Boolean,
+    default: false,
   },
 });
 
-const orderModel = mongoose.models.order || mongoose.model("order",orderSchema);
+const orderModel =
+  mongoose.models.order || mongoose.model("order", orderSchema);
 
 export default orderModel;
