@@ -51,7 +51,7 @@ export default function MyOrders() {
                 <span>🟢</span>
                 <b>{order.status}</b>
               </p>
-              <button>Track Order</button>
+              <button onClick={fetchOrders}>Track Order</button>
             </div>
           );
         })}

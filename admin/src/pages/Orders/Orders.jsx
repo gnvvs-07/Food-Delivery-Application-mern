@@ -15,6 +15,16 @@ export default function Orders({ url }) {
       toast.error("Error while loading orders");
     }
   };
+  const statusHandler = async (e, orderId) => {
+    const res = await axios.post(url + "/api/order/status", {
+      orderId,
+      status: e.target.value,
+    });
+    if (res.data.success) {
+      await fetchAllOrders();
+      toast.success("Order status updated successfully");
+    }
+  };
   useEffect(() => {
     fetchAllOrders();
   }, []);
@@ -54,7 +64,10 @@ export default function Orders({ url }) {
             </div>
             <p>Items: {order.items.length}</p>
             <p>${order.amount}</p>
-            <select>
+            <select
+              onChange={(e) => statusHandler(e, order._id)}
+              value={order.status}
+            >
               <option value="food processing">Food Processing</option>
               <option value="out for delivery">Out for delivery</option>
               <option value="delivered">Delevered</option>
